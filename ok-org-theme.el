@@ -88,15 +88,15 @@
      ((,cls ( :inherit ok-org-fixed-pitch
               :foreground ,(face-attribute 'org-drawer :foreground)
               :background ,(face-attribute 'org-drawer :background) ))))
-   `(org-document-title ((,cls ( :inherit ok-org-outline :height 1.4 ))))
+   `(org-document-title ((,cls ( :inherit ok-org-outline :height 1.3 :weight bold ))))
    `(org-drawer ((,cls ( :inherit ok-org-fixed-pitch
                          :foreground ,(face-attribute 'shadow :foreground) ))))
    `(org-formula ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
    `(org-indent ((,cls ( :inherit org-hide ))))
    `(org-latex-and-related ((,cls ( :inherit ok-org-fixed-pitch ))))
-   `(org-level-1 ((,cls ( :inherit ok-org-outline :height 1.4 ))))
-   `(org-level-2 ((,cls ( :inherit ok-org-outline :height 1.2 ))))
+   `(org-level-1 ((,cls ( :inherit ok-org-outline :height 1.3 :weight bold ))))
+   `(org-level-2 ((,cls ( :inherit ok-org-outline :height 1.15 ))))
    `(org-level-3 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
    `(org-level-4 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
    `(org-level-5 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
@@ -117,13 +117,15 @@
    `(org-modern-bracket-line ((,cls ,(when (featurep 'org-modern)
                                        '( :inherit ok-org-fixed-pitch )))))
    `(org-modern-tag ((,cls ,(when (featurep 'org-modern)
-                              `( :inherit ok-org-fixed-pitch
+                              `( :inherit (org-modern-label ok-org-fixed-pitch)
                                  :foreground ,fg-em
                                  :background ,bg-em )))))
+   `(org-modern-done ((,cls ,(when (featurep 'org-modern)
+                               `( :inherit (org-modern-label ok-org-fixed-pitch)
+                                  :inverse-video t )))))
    `(org-modern-todo ((,cls ,(when (featurep 'org-modern)
-                               `( :inherit ok-org-fixed-pitch
-                                  :background ,bg-em
-                                  :weight bold )))))
+                               `( :inherit (org-todo org-modern-label ok-org-fixed-pitch)
+                                  :inverse-video t )))))
 
    `(org-modern-indent-bracket-line
      ((,cls ,(when (featurep 'org-modern-indent)
