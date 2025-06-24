@@ -93,7 +93,7 @@
                          :foreground ,(face-attribute 'shadow :foreground) ))))
    `(org-formula ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
-   `(org-indent ((,cls ( :inherit org-hide ))))
+   `(org-indent ((,cls ( :inherit (org-hide ok-org-fixed-pitch) ))))
    `(org-latex-and-related ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-level-1 ((,cls ( :inherit ok-org-outline :height 1.3 :weight bold ))))
    `(org-level-2 ((,cls ( :inherit ok-org-outline :height 1.15 ))))
@@ -133,6 +133,8 @@
 
   (custom-theme-set-variables
    'ok-org
+   '(org-indent-indentation-per-level 2)
+
    ;; org-modern
    '(org-modern-block-name t)   ; use `org-modern-indent'
    '(org-modern-checkbox '((?X . #("▢𐄂" 0 2 (composition ((2)))))
