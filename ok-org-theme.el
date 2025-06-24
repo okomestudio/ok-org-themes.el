@@ -68,9 +68,11 @@
 
 (let ((cls t)              ; '((class color) (min-colors 89))
       (fg (face-attribute 'ok-org-default :foreground))
-      (fg-em (face-attribute 'secondary-selection :foreground))
       (bg (face-attribute 'ok-org-default :background))
-      (bg-em (face-attribute 'secondary-selection :background)))
+      (fg-em (face-attribute 'secondary-selection :foreground))
+      (bg-em (face-attribute 'secondary-selection :background))
+      (fg-de (face-attribute 'shadow :foreground))
+      (bg-de (face-attribute 'shadow :background)))
   (custom-theme-set-faces
    'ok-org
    `(link ((,cls ( :weight unspecified ))))
@@ -79,18 +81,24 @@
                              '( :inherit ok-org-fixed-pitch )))))
 
    `(org-block ((,cls ( :inherit ok-org-fixed-pitch ))))
-   `(org-block-begin-line ((,cls ( :inherit ok-org-fixed-pitch :background ,bg ))))
-   `(org-block-end-line ((,cls ( :inherit ok-org-fixed-pitch :background ,bg ))))
+   `(org-block-begin-line ((,cls ( :inherit ok-org-fixed-pitch
+                                   :background ,bg ))))
+   `(org-block-end-line ((,cls ( :inherit ok-org-fixed-pitch
+                                 :background ,bg ))))
    `(org-checkbox ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-code ((,cls ( :inherit ok-org-fixed-pitch ))))
-   `(org-document-info ((,cls ( :inherit ok-org-fixed-pitch ))))
-   `(org-document-info-keyword
-     ((,cls ( :inherit ok-org-fixed-pitch
-              :foreground ,(face-attribute 'org-drawer :foreground)
-              :background ,(face-attribute 'org-drawer :background) ))))
-   `(org-document-title ((,cls ( :inherit ok-org-outline :height 1.3 :weight bold ))))
+   `(org-document-info ((,cls ( :inherit ok-org-fixed-pitch
+                                :foreground ,fg-de
+                                :background: ,bg-de ))))
+   `(org-document-info-keyword ((,cls ( :inherit ok-org-fixed-pitch
+                                        :foreground ,fg-de
+                                        :background ,bg-de ))))
+   `(org-document-title ((,cls ( :inherit ok-org-outline
+                                 :height 1.3
+                                 :weight bold ))))
    `(org-drawer ((,cls ( :inherit ok-org-fixed-pitch
-                         :foreground ,(face-attribute 'shadow :foreground) ))))
+                         :foreground ,fg-de
+                         :background ,bg-de))))
    `(org-formula ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
    `(org-indent ((,cls ( :inherit (org-hide ok-org-fixed-pitch) ))))
@@ -103,10 +111,9 @@
    `(org-level-6 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
    `(org-level-7 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
    `(org-level-8 ((,cls ( :inherit ok-org-outline :height 1.0 ))))
-   `(org-meta-line
-     ((,cls ( :inherit ok-org-fixed-pitch
-              :foreground ,(face-attribute 'org-drawer :foreground)
-              :background ,(face-attribute 'org-drawer :background) ))))
+   `(org-meta-line ((,cls ( :inherit ok-org-fixed-pitch
+                            :foreground ,fg-de
+                            :background ,bg-de ))))
    `(org-property-value ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-special-keyword ((,cls ( :inherit ok-org-fixed-pitch ))))
    `(org-table ((,cls ( :inherit ok-org-fixed-pitch ))))
@@ -124,7 +131,9 @@
                                `( :inherit (org-modern-label ok-org-fixed-pitch)
                                   :inverse-video t )))))
    `(org-modern-todo ((,cls ,(when (featurep 'org-modern)
-                               `( :inherit (org-todo org-modern-label ok-org-fixed-pitch)
+                               `( :inherit (org-todo
+                                            org-modern-label
+                                            ok-org-fixed-pitch)
                                   :inverse-video t )))))
 
    `(org-modern-indent-bracket-line
