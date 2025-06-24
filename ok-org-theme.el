@@ -158,9 +158,9 @@
                                 " "))
             ("filetags" . ,(nerd-icons-mdicon "nf-md-tag_outline"))))
         '((t . "‣ "))))
-   '(org-modern-list '((?+ . "🞊")
-                       (?- . "⏺")
-                       (?* . "🞉")))
+   '(org-modern-list '((?+ . "✧")
+                       (?- . "‒")
+                       (?* . "✦")))
    '(org-modern-priority t)
    '(org-modern-replace-stars "🞛🞕🞛🞕■") ; "◉🞛○▷"
    '(org-modern-star 'replace)
