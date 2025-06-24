@@ -1,12 +1,12 @@
-;;; ok-themes.el --- ok-themes  -*- lexical-binding: t -*-
+;;; ok-org-themes.el --- Okome Studio Org mode themes  -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2025 Taro Sato
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
-;; URL: https://github.com/okomestudio/ok-themes.el
+;; URL: https://github.com/okomestudio/ok-org-themes.el
 ;; Version: 0.1.1
-;; Keywords:
-;; Package-Requires: ((emacs "30.1"))
+;; Keywords: theme, faces
+;; Package-Requires: ((emacs "30.1") (org "9.7"))
 ;;
 ;;; License:
 ;;
@@ -25,18 +25,20 @@
 ;;
 ;;; Commentary:
 ;;
-;; A collection of Emacs themes by Okome Studio.
+;; Okome Studio's collection of Emacs themes for Org mode.
 ;;
 ;;; Code:
 
-(defgroup ok-themes nil
-  "OK theme options."
-  :group 'faces)
+(defgroup ok-org-themes nil
+  "Okome Studio themes for Org mode."
+  :group 'faces
+  :prefix "ok-org-themes-"
+  :tag "Okome Studio Org Themes")
 
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide 'ok-themes)
-;;; ok-themes.el ends here
+(provide 'ok-org-themes)
+;;; ok-org-themes.el ends here
