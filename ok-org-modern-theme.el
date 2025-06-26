@@ -92,8 +92,9 @@
                                           :foreground ,fg-de
                                           :background ,bg-de ))))
      `(org-document-title ((,cls ( :inherit ok-org-modern-outline
-                                   :height 1.3
-                                   :weight bold ))))
+                                   :height 1.2
+                                   :weight bold
+                                   :underline unspecified ))))
      `(org-drawer ((,cls ( :inherit ok-org-modern-fixed-pitch
                            :foreground ,fg-de
                            :background ,bg-de))))
@@ -102,9 +103,9 @@
      `(org-indent ((,cls ( :inherit (org-hide ok-org-modern-fixed-pitch) ))))
      `(org-latex-and-related ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-level-1 ((,cls ( :inherit ok-org-modern-outline
-                            :height 1.3
+                            :height 1.1
                             :weight bold ))))
-     `(org-level-2 ((,cls ( :inherit ok-org-modern-outline :height 1.15 ))))
+     `(org-level-2 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
      `(org-level-3 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
      `(org-level-4 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
      `(org-level-5 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
