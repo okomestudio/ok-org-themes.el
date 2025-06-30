@@ -4,7 +4,7 @@
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.1.1
+;; Version: 0.1.2
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
@@ -73,6 +73,9 @@
         (bg-de (face-attribute 'shadow :background)))
     (custom-theme-set-faces
      'ok-org-modern
+     `(font-lock-comment-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; TODO(2025-06-30): Configure the rest of font-lock-* faces.
+
      `(link ((,cls ( :weight unspecified ))))
 
      `(corfu-default ((,cls ,(when (featurep 'corfu)
