@@ -4,7 +4,7 @@
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
@@ -77,6 +77,9 @@
      ;; TODO(2025-06-30): Configure the rest of font-lock-* faces.
 
      `(link ((,cls ( :weight unspecified ))))
+
+     `(line-number ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     `(line-number-current-line ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
 
      `(corfu-default ((,cls ,(when (featurep 'corfu)
                                '( :inherit ok-org-modern-fixed-pitch )))))
