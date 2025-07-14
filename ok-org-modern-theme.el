@@ -73,8 +73,21 @@
         (bg-de (face-attribute 'shadow :background)))
     (custom-theme-set-faces
      'ok-org-modern
+     ;; `(font-lock-builtin-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-comment-delimiter-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(font-lock-comment-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
-     ;; TODO(2025-06-30): Configure the rest of font-lock-* faces.
+     ;; `(font-lock-constant-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-doc-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-function-name-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-keyword-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-negation-char-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-preperocessor-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-regexp-grouping-backslash ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-regexp-grouping-construct ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-string-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-type-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-type-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
+     ;; `(font-lock-variable-name-face ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
 
      `(link ((,cls ( :weight unspecified ))))
 
