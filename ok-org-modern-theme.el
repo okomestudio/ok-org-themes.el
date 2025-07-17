@@ -176,9 +176,8 @@
      `(org-modern-keyword
        ',(append
           (when (featurep 'nerd-icons)
-            `(("property" . ,(nerd-icons-mdicon "nf-md-alpha_p_box_outline"))
-              ("title" . ,(concat (nerd-icons-mdicon "nf-md-note_edit_outline")
-                                  " "))
+            `(("property" . ,(nerd-icons-codicon "nf-cod-settings"))
+              ("title" . ,(concat (nerd-icons-mdicon "nf-md-format_title") " "))
               ("filetags" . ,(nerd-icons-mdicon "nf-md-tag_outline"))))
           '((t . "‣ "))))
      '(org-modern-list '((?+ . "✧")
@@ -197,13 +196,13 @@
      `(org-hide-drawers-display-strings
        `((top-level-property-drawer
           ,(if (featurep 'nerd-icons)
-               (nerd-icons-mdicon "nf-md-file_cog_outline")
+               (nerd-icons-codicon "nf-cod-settings")
              "⚙"))
          (drawer-regexp ,(propertize "[PROP...]" 'face 'shadow)
                         ,(rx (0+ anychar)))
          (property-drawer-regexp
           ,(concat " " (if (featurep 'nerd-icons)
-                           (nerd-icons-mdicon "nf-md-file_cog_outline")
+                           (nerd-icons-codicon "nf-cod-settings")
                          "⚙"))
           ,(rx (0+ anychar)))))))
 
