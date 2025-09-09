@@ -4,7 +4,7 @@
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
@@ -184,7 +184,7 @@
                          (?- . "‒")
                          (?* . "✦")))
      '(org-modern-priority t)
-     '(org-modern-replace-stars "🞛🞕🞛🞕■") ; "◉🞛○▷"
+     '(org-modern-replace-stars "■◆▣◈▣◈") ; "■⯁🞕🞛🞕🞛" "◉🞛○▷"
      '(org-modern-star 'replace)
      '(org-modern-statistics t)
      '(org-modern-table nil)
