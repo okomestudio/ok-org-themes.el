@@ -4,31 +4,32 @@
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.1.5
+;; Version: 0.1.6
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
 ;;; License:
 ;;
-;; This program is free software; you can redistribute it and/or modify it under
-;; the terms of the GNU General Public License as published by the Free Software
-;; Foundation, either version 3 of the License, or (at your option) any later
-;; version.
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or (at
+;; your option) any later version.
 ;;
-;; This program is distributed in the hope that it will be useful, but WITHOUT
-;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-;; FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
-;; details.
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+;; General Public License for more details.
 ;;
-;; You should have received a copy of the GNU General Public License along with
-;; this program. If not, see <https://www.gnu.org/licenses/>.
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <https://www.gnu.org/licenses/>.
 ;;
 ;;; Commentary:
 ;;
-;; The `ok-org-modern-theme` is a modern variant of Org mode theme. The goal is
-;; to make Org documents visually more appealing through `org-modern'. The theme
-;; does not enforce a fixed color scheme; it should be used alongside a main,
-;; color-focused theme. Enable this theme after the main theme is enabled.
+;; The `ok-org-modern-theme` is a modern variant of Org mode theme. The
+;; goal is to make Org documents visually more appealing through
+;; `org-modern'. The theme does not enforce a fixed color scheme; it
+;; should be used alongside a main, color-focused theme. Enable this
+;; theme after the main theme is enabled.
 ;;
 ;;; Code:
 
@@ -94,6 +95,8 @@
      `(line-number-current-line ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
 
      `(corfu-default ((,cls ,(when (featurep 'corfu)
+                               '( :inherit ok-org-modern-fixed-pitch )))))
+     `(corfu-current ((,cls ,(when (featurep 'corfu)
                                '( :inherit ok-org-modern-fixed-pitch )))))
 
      `(org-block ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
