@@ -1,10 +1,10 @@
 ;;; ok-org-modern-theme.el --- A modern variant of Okome Studio Org mode theme  -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2025 Taro Sato
+;; Copyright (C) 2025-2026 Taro Sato
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.1.6
+;; Version: 0.2.1
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
@@ -64,6 +64,9 @@
   (defface ok-org-modern-outline '((t :inherit ok-org-modern-default))
     "Org outline face.")
 
+  (defface org-hide-drawers-property-face '((t :inherit ok-org-modern-outline ))
+    "Org hide drawers property face.")
+
   (let ((cls t)               ; '((class color) (min-colors 89))
         (fg (face-attribute 'ok-org-modern-default :foreground))
         (bg (face-attribute 'ok-org-modern-default :background))
@@ -101,26 +104,31 @@
 
      `(org-block ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-block-begin-line ((,cls ( :inherit ok-org-modern-fixed-pitch
-                                     :background ,bg ))))
+                                     ;; :background ,bg
+                                     ))))
      `(org-block-end-line ((,cls ( :inherit ok-org-modern-fixed-pitch
-                                   :background ,bg ))))
+                                   ;; :background ,bg
+                                   ))))
      `(org-checkbox ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-code ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-document-info ((,cls ( :inherit ok-org-modern-fixed-pitch
-                                  :foreground ,fg-de
-                                  :background: ,bg-de ))))
+                                  ;; :foreground ,fg-de
+                                  ;; :background: ,bg-de
+                                  ))))
      `(org-document-info-keyword ((,cls ( :inherit ok-org-modern-fixed-pitch
-                                          :foreground ,fg-de
-                                          :background ,bg-de ))))
+                                          ;; :foreground ,fg-de
+                                          ;; :background ,bg-de
+                                          ))))
      `(org-document-title ((,cls ( :inherit ok-org-modern-outline
                                    :height 1.2
                                    :weight bold
                                    :underline unspecified ))))
      `(org-drawer ((,cls ( :inherit ok-org-modern-fixed-pitch
-                           :foreground ,fg-de
-                           :background ,bg-de))))
+                           ;; :foreground ,fg-de
+                           ;; :background ,bg-de
+                           ))))
      `(org-formula ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
-     `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
+     ;; `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
      `(org-indent ((,cls ( :inherit (org-hide ok-org-modern-fixed-pitch) ))))
      `(org-latex-and-related ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-level-1 ((,cls ( :inherit ok-org-modern-outline
@@ -134,8 +142,9 @@
      `(org-level-7 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
      `(org-level-8 ((,cls ( :inherit ok-org-modern-outline :height 1.0 ))))
      `(org-meta-line ((,cls ( :inherit ok-org-modern-fixed-pitch
-                              :foreground ,fg-de
-                              :background ,bg-de ))))
+                              ;; :foreground ,fg-de
+                              ;; :background ,bg-de
+                              ))))
      `(org-property-value ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-special-keyword ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      `(org-table ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
@@ -149,8 +158,9 @@
      `(org-modern-tag
        ((,cls ,(when (featurep 'org-modern)
                  `( :inherit (org-modern-label ok-org-modern-fixed-pitch)
-                    :foreground ,fg-em
-                    :background ,bg-em )))))
+                    ;; :foreground ,fg-em
+                    ;; :background ,bg-em
+                    )))))
      `(org-modern-done
        ((,cls ,(when (featurep 'org-modern)
                  `( :inherit (org-modern-label ok-org-modern-fixed-pitch)
@@ -160,10 +170,15 @@
                  `( :inherit (org-todo
                               org-modern-label
                               ok-org-modern-fixed-pitch)
-                    :inverse-video t )))))
+                    ;; :inverse-video t
+                    )))))
      `(org-modern-indent-bracket-line
        ((,cls ,(when (featurep 'org-modern-indent)
-                 '( :inherit org-block-begin-line ))))))
+                 '( :inherit org-block-begin-line )))))
+
+     `(org-hide-drawers-property-face
+       ((,cls ( :foreground ,(face-attribute 'org-level-1 :foreground)
+                :background ,(face-attribute 'org-level-1 :background) )))))
 
     (custom-theme-set-variables
      'ok-org-modern
@@ -195,17 +210,19 @@
      '(org-modern-todo t)
 
      ;; org-hide-drawers
-     `(org-hide-drawers-display-strings
+     '(org-hide-drawers-display-strings
        `((top-level-property-drawer
           ,(if (featurep 'nerd-icons)
-               (nerd-icons-codicon "nf-cod-settings")
+               (nerd-icons-codicon "nf-cod-settings" :face 'org-document-info)
              "⚙"))
          (drawer-regexp ,(propertize "[PROP...]" 'face 'shadow)
                         ,(rx (0+ anychar)))
          (property-drawer-regexp
-          ,(concat " " (if (featurep 'nerd-icons)
-                           (nerd-icons-codicon "nf-cod-settings")
-                         "⚙"))
+          ,(concat " "
+                   (if (featurep 'nerd-icons)
+                       (nerd-icons-codicon "nf-cod-settings"
+                                           :face 'org-hide-drawers-property-face)
+                     "⚙"))
           ,(rx (0+ anychar)))))))
 
   (defun ok-org-modern--buffer-face ()
