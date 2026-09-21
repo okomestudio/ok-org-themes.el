@@ -4,7 +4,7 @@
 ;;
 ;; Author: Taro Sato <okomestudio@gmail.com>
 ;; URL: https://github.com/okomestudio/ok-org-modern-theme.el
-;; Version: 0.2.1
+;; Version: 0.2.2
 ;; Keywords: theme, faces
 ;; Package-Requires: ((emacs "30.1") (org "9.7") (org-modern "1.9") (org-modern-indent "0.5.1"))
 ;;
@@ -63,6 +63,9 @@
 
   (defface ok-org-modern-outline '((t :inherit ok-org-modern-default))
     "Org outline face.")
+
+  (defface ok-org-modern-footnote-text '((t :height 0.85))
+    "Face applied to the body text of Org footnote text.")
 
   (defface org-hide-drawers-property-face '((t :inherit ok-org-modern-outline ))
     "Org hide drawers property face.")
@@ -127,6 +130,8 @@
                            ;; :foreground ,fg-de
                            ;; :background ,bg-de
                            ))))
+     `(org-footnote ((,cls ( :inherit ok-org-modern-fixed-pitch
+                             :underline nil :height 0.85 ))))
      `(org-formula ((,cls ( :inherit ok-org-modern-fixed-pitch ))))
      ;; `(org-hide ((,cls ( :foreground ,bg :background ,bg ))))
      `(org-indent ((,cls ( :inherit (org-hide ok-org-modern-fixed-pitch) ))))
@@ -224,6 +229,16 @@
                                            :face 'org-hide-drawers-property-face)
                      "⚙"))
           ,(rx (0+ anychar)))))))
+
+  (defun ok-org-modern-theme--on-org-mode ()
+    "Add process on org-mode hook."
+    ;; Fontify the text body of footnote definitions.
+    (font-lock-add-keywords 'org-mode
+                            '(("^[ \t]*\\[fn:[^]]+\\][ \t]+\\(.*\\)$"
+                               (1 'ok-org-modern-footnote-text prepend)))
+                            'append))
+
+  (add-hook 'org-mode-hook #'ok-org-modern-theme--on-org-mode)
 
   (defun ok-org-modern--buffer-face ()
     "Set the default face and activate `buffer-face-mode'."
