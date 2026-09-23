@@ -170,6 +170,10 @@
        ((,cls ,(when (featurep 'org-modern)
                  `( :inherit (org-modern-label ok-org-modern-fixed-pitch)
                     :inverse-video t )))))
+     `(org-modern-label ((,cls ,(when (featurep 'org-modern)
+                                  `( :inherit ok-org-modern-fixed-pitch
+                                     :height 0.8 :weight regular :width condensed
+                                     :box ( :color "#ff0000" :line-width (-1 . -2)) )))))
      `(org-modern-todo
        ((,cls ,(when (featurep 'org-modern)
                  `( :inherit (org-todo
